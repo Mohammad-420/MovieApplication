@@ -28,8 +28,7 @@ public class UserService{
     public boolean isUser(List<User> users){
         return users.stream().anyMatch(user -> {
             if(user.getUsername().equals(listener.getUsernameField().getText()) &
-                    (user.getPassword().equals(listener.getPasswordFieldShown()) ||
-                user.getPassword().equals(listener.getPasswordField().getText())))
+                user.getPassword().equals(listener.getPasswordField().getText()))
                 return true;
             else
                 return false;
@@ -41,8 +40,6 @@ public class UserService{
 
         listener.getAuthenticated().setText("The Account has been created successfully ...");
         listener.getAuthenticated().setStyle("-fx-background-color: green");
-
-        clear();
     }
 
     public void createAccountFailed(){

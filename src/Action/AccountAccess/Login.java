@@ -1,13 +1,15 @@
-package Action;
+package Action.AccountAccess;
 
 import Access.Paths;
 import Database.UserDatabase;
 import Entity.User;
 import Listener.IUserPass;
 import Service.UserService;
+import UI.MovieList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
+import javafx.stage.Stage;
 
 import java.util.List;
 
@@ -33,9 +35,15 @@ public class Login {
         UserService userService = new UserService(listener);
 
         try {
-            if (userService.isUser(users))
+
+            if (userService.isUser(users)) {
                 userService.access();
-            else throw new Exception();
+                Stage newWindow = new Stage();
+                MovieList movieList = new MovieList();
+                movieList.start(newWindow);
+            }else
+                throw new Exception();
+
         }catch(Exception e){
             userService.accessDenied();
         }finally {

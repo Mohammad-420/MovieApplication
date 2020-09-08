@@ -1,8 +1,10 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.UUID;
 
-public class Actor implements Serializable {
+public class Actor {
+    private UUID id = UUID.randomUUID();
     private String name;
     private Gender gender;
     private int age;
@@ -35,5 +37,9 @@ public class Actor implements Serializable {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getId() {
+        return id.toString();
     }
 }

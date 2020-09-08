@@ -1,4 +1,4 @@
-package Action;
+package Action.AccountAccess;
 
 import Access.Paths;
 import Database.UserDatabase;
@@ -32,12 +32,15 @@ public class SignUp {
         UserService userService = new UserService(listener);
 
         try {
-            if (userDatabase.read() != null & userService.isUsername(userDatabase.read())) {
-                throw new Exception();
+            if (userDatabase.read() != null) {
+                if(userService.isUsername(userDatabase.read()))
+                    throw new Exception();
             }
             userService.createAccount();
         }catch (Exception e){
             userService.createAccountFailed();
+        }finally {
+            userService.clear();
         }
     }
 }

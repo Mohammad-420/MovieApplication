@@ -13,5 +13,8 @@ public class GUI extends Application {
     public void start(Stage primaryStage) {
         LoginAndSignUp loginAndSignUp = new LoginAndSignUp();
         loginAndSignUp.start(primaryStage);
+
+//        MovieList movieList = new MovieList();
+//        movieList.start(primaryStage);
     }
 }

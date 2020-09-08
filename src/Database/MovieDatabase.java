@@ -26,11 +26,11 @@ public class MovieDatabase extends Database<Movie>{
         return super.read();
     }
 
-    public void update(Movie oldMovie,Movie newMovie){
-        super.update(oldMovie,newMovie);
+    public void update(int oldMovieIndex,Movie newMovie){
+        super.update(oldMovieIndex,newMovie);
     }
 
-    public void delete(Movie movie){
-        super.delete(movie);
+    public void delete(int index){
+        super.delete(index);
     }
 }

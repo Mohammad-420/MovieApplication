@@ -52,11 +52,10 @@ public class Database<T extends Model> {
         }
     }
 
-    protected void update(T oldUser,T newUser){
+    protected void update(int oldItemIndex,T newItem){
         try {
             List<T> users = read();
-            int index = users.indexOf(oldUser);
-            users.set(index, newUser);
+            users.set(oldItemIndex, newItem);
 
             File file = new File(path);
             FileOutputStream fileOutputStream = new FileOutputStream(file);
@@ -71,17 +70,18 @@ public class Database<T extends Model> {
         }
     }
 
-    protected void delete(T user){
+    protected void delete(int index){
         try{
-            List<T> users = read();
-            int index = users.indexOf(user);
-            users.remove(user);
+            List<T> items = read();
 
             File file = new File(path);
             FileOutputStream fileOutputStream = new FileOutputStream(file);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 
-            objectOutputStream.writeObject(users);
+            items.remove(index);
+
+            objectOutputStream.writeObject(items);
+
             objectOutputStream.flush();
             objectOutputStream.close();
 

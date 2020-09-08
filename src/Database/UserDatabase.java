@@ -27,11 +27,11 @@ public class UserDatabase extends Database<User> {
         return super.read();
     }
 
-    public void update(User oldUser,User newUser){
-        super.update(oldUser,newUser);
+    public void update(int oldUserIndex,User newUser){
+        super.update(oldUserIndex,newUser);
     }
 
-    public void delete(User user){
-        super.delete(user);
+    public void delete(int index){
+        super.delete(index);
     }
 }

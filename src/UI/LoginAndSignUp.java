@@ -1,8 +1,8 @@
 package UI;
 
-import Action.Login;
-import Action.ShowPassword;
-import Action.SignUp;
+import Action.AccountAccess.Login;
+import Action.AccountAccess.ShowPassword;
+import Action.AccountAccess.SignUp;
 import Listener.IUserPass;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -21,7 +21,7 @@ public class LoginAndSignUp implements IUserPass {
 
     private Label authenticated = new Label();
 
-    public void start(Stage primaryStage){
+    void start(Stage primaryStage){
         //create SignUp Object for add button to the Layout
         SignUp signUp = new SignUp(this);
         //create Login Object for add button to the Layout
